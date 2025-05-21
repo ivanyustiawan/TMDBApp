@@ -1,7 +1,7 @@
-package repository
+package com.example.tmdbapp.domain.repository
 
 import kotlinx.coroutines.flow.Flow
-import model.Movie
+import com.example.tmdbapp.domain.model.Movie
 
 interface MovieRepository {
     suspend fun getPopularMovies(page: Int) : Flow<List<Movie>>

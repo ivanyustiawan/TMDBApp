@@ -1,6 +1,7 @@
 plugins{
     `kotlin-dsl`
-    kotlin("kapt")
+//    kotlin("kapt")
+    kotlin("jvm")
 }
 
 dependencies {

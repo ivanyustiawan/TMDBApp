@@ -1,8 +1,8 @@
-package usecase
+package com.example.tmdbapp.domain.usecase
 
 import kotlinx.coroutines.flow.Flow
-import model.Movie
-import repository.MovieRepository
+import com.example.tmdbapp.domain.model.Movie
+import com.example.tmdbapp.domain.repository.MovieRepository
 import javax.inject.Inject
 
 class GetFavoriteMovies @Inject constructor (private val repository: MovieRepository) {

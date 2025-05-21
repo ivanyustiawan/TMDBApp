@@ -1,4 +1,4 @@
-package model
+package com.example.tmdbapp.domain.model
 
 data class Movie(
     val adult: Boolean,
