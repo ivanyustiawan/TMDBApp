@@ -14,14 +14,14 @@ class MovieRepositoryImpl(
 ) : MovieRepository {
 
     override suspend fun getPopularMovies(page: Int): Flow<List<Movie>> = flow {
-        val response = movieApi.getPopularMovies(NetworkConstant.ACCOUNT_OBJECT_ID, page)
+        val response = movieApi.getPopularMovies(page)
         emit(response.results?.map { it.toModel() } ?: emptyList())
     }.catch { e ->
         throw e
     }
 
     override suspend fun getRatedMovies(page: Int): Flow<List<Movie>> = flow {
-        val response = movieApi.getRatedMovies(NetworkConstant.ACCOUNT_OBJECT_ID, page)
+        val response = movieApi.getRatedMovies(page)
         emit(response.results?.map { it.toModel() } ?: emptyList())
     }.catch { e ->
         throw e

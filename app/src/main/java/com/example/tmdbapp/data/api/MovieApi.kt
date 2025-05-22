@@ -12,13 +12,14 @@ interface MovieApi {
         @Path("account_object_id") accountObjectId: String, @Query("page") page: Int
     ): MovieListResponse
 
-    @GET("/4/account/{account_object_id}/movie/rated")
+    @GET("/3/movie/top_rated")
     suspend fun getRatedMovies(
-        @Path("account_object_id") accountObjectId: String, @Query("page") page: Int
+        @Query("page") page: Int
     ): MovieListResponse
 
-    @GET("/4/account/{account_object_id}/movie/recommendations")
+    @GET("/3/movie/popular")
     suspend fun getPopularMovies(
-        @Path("account_object_id") accountObjectId: String, @Query("page") page: Int
+        @Query("page") page: Int
     ): MovieListResponse
+
 }
