@@ -1,10 +1,10 @@
-package com.example.tmdbapp.pages
+package com.example.tmdbapp.pages.home
 
 import androidx.lifecycle.viewModelScope
 import com.example.tmdbapp.core.AppUiState
 import com.example.tmdbapp.core.BaseViewModel
 import com.example.tmdbapp.domain.model.Movie
-import com.example.tmdbapp.domain.usecase.GetFavoriteMoviesUseCase
+import com.example.tmdbapp.domain.usecase.GetRatedMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
@@ -12,8 +12,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class FavoriteViewModel @Inject constructor(
-    private val getFavoriteMoviesUseCase: GetFavoriteMoviesUseCase
+class RatedViewModel @Inject constructor(
+    private val getRatedMoviesUseCase: GetRatedMoviesUseCase
 ) : BaseViewModel() {
 
     private var isLoading = false
@@ -31,7 +31,7 @@ class FavoriteViewModel @Inject constructor(
         }
 
         viewModelScope.launch {
-            getFavoriteMoviesUseCase(currentPage)
+            getRatedMoviesUseCase(currentPage)
                 .onStart {
                     _uiState.value = AppUiState.Loading
                 }
@@ -47,7 +47,6 @@ class FavoriteViewModel @Inject constructor(
                 }
 
         }
-
-
     }
+
 }

@@ -1,9 +1,9 @@
-package com.example.tmdbapp.pages
+package com.example.tmdbapp.pages.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,7 +16,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.example.tmdbapp.pages.ui.theme.TMDBAppTheme
+import com.example.tmdbapp.pages.detail.MovieDetailActivity
+import com.example.tmdbapp.pages.home.ui.theme.TMDBAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,10 +29,16 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             TMDBAppTheme {
-                MainTab(popularViewModel, ratedViewModel, favoriteViewModel)
+                MainTab(
+                    onNavigateToDetail = {
+                        startActivity(Intent(this, MovieDetailActivity::class.java))
+                    },
+                    popularViewModel,
+                    ratedViewModel,
+                    favoriteViewModel
+                )
             }
         }
     }
@@ -39,6 +46,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainTab(
+    onNavigateToDetail: () -> Unit,
     popularViewModel: PopularViewModel,
     ratedViewModel: RatedViewModel,
     favoriteViewModel: FavoriteViewModel
@@ -57,9 +65,9 @@ fun MainTab(
         }
 
         when (selectedTab) {
-            0 -> TabScreen(1, popularViewModel)
-            1 -> TabScreen(2, ratedViewModel)
-            2 -> TabScreen(3, favoriteViewModel)
+            0 -> TabScreen(onNavigateToDetail, 1, popularViewModel)
+            1 -> TabScreen(onNavigateToDetail, 2, ratedViewModel)
+            2 -> TabScreen(onNavigateToDetail, 3, favoriteViewModel)
         }
     }
 }

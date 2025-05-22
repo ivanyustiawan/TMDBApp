@@ -1,4 +1,4 @@
-package com.example.tmdbapp.pages.ui.theme
+package com.example.tmdbapp.pages.detail.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

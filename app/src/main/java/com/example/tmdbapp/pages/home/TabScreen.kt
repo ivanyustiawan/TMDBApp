@@ -1,5 +1,6 @@
-package com.example.tmdbapp.pages
+package com.example.tmdbapp.pages.home
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -29,7 +30,11 @@ import com.example.tmdbapp.core.BaseViewModel
 import com.example.tmdbapp.domain.model.Movie
 
 @Composable
-fun TabScreen(tabIndex: Int, baseViewModel: BaseViewModel) {
+fun TabScreen(
+    onNavigateToDetail: () -> Unit,
+    tabIndex: Int,
+    baseViewModel: BaseViewModel
+) {
 
     var viewModel: BaseViewModel = if (tabIndex == 1) {
         baseViewModel as PopularViewModel
@@ -76,12 +81,13 @@ fun TabScreen(tabIndex: Int, baseViewModel: BaseViewModel) {
                         modifier = Modifier
                             .padding(8.dp)
                             .fillMaxWidth(),
-                        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+                        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
                     ) {
                         Box(
                             modifier = Modifier
+                                .clickable{onNavigateToDetail()}
                                 .fillMaxHeight(),
-                            contentAlignment = Alignment.Center
+                            contentAlignment = Alignment.Center,
                         ) {
                             AsyncImage(
                                 model = movie.posterPath,

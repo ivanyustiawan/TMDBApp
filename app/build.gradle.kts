@@ -80,6 +80,5 @@ dependencies {
     testImplementation(libs.truth)
 
     implementation(libs.coil.compose)
-
-
+    
 }
