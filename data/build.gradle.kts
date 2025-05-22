@@ -31,8 +31,14 @@ android {
 }
 
 dependencies {
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+
     implementation(libs.kotlinx.coroutines.android)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+
+    implementation(project(":domain"))
+    implementation(project(":core"))
 }

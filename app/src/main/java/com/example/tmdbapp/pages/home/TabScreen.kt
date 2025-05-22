@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.tmdbapp.core.AppUiState
 import com.example.tmdbapp.core.BaseViewModel
-import com.example.tmdbapp.domain.model.Movie
+import model.Movie
 
 @Composable
 fun TabScreen(

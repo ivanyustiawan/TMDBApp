@@ -33,7 +33,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.tmdbapp.core.AppUiState
-import com.example.tmdbapp.domain.model.MovieDetail
+import model.MovieDetail
 import com.example.tmdbapp.pages.Constant.MOVIE_ID
 import com.example.tmdbapp.pages.detail.ui.theme.TMDBAppTheme
 import dagger.hilt.android.AndroidEntryPoint

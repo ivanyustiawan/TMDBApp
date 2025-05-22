@@ -1,7 +1,7 @@
-package com.example.tmdbapp.domain.usecase
+package usecase
 
-import com.example.tmdbapp.domain.model.MovieDetail
-import com.example.tmdbapp.domain.repository.MovieRepository
+import model.MovieDetail
+import repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

@@ -1,7 +1,7 @@
 
 import app.cash.turbine.test
-import com.example.tmdbapp.domain.repository.MovieRepository
-import com.example.tmdbapp.domain.usecase.GetPopularMoviesUseCase
+import repository.MovieRepository
+import usecase.GetPopularMoviesUseCase
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -13,7 +13,7 @@ import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import com.example.tmdbapp.domain.model.Movie
+import model.Movie
 
 @ExperimentalCoroutinesApi
 class GetPopularMoviesUseCaseTest {

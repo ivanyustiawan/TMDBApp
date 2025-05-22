@@ -31,7 +31,11 @@ android {
 }
 
 dependencies {
-    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)

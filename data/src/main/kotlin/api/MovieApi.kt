@@ -1,7 +1,7 @@
-package com.example.tmdbapp.data.api
+package api
 
-import com.example.tmdbapp.data.dto.MovieDetailDto
-import com.example.tmdbapp.data.dto.MovieListResponse
+import dto.MovieDetailDto
+import dto.MovieListResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

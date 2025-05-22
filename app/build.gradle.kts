@@ -80,5 +80,8 @@ dependencies {
     testImplementation(libs.truth)
 
     implementation(libs.coil.compose)
-    
+
+    implementation(project(":domain"))
+    implementation(project(":data"))
+
 }

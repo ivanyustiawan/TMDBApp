@@ -1,4 +1,4 @@
-package com.example.tmdbapp.data.dto
+package dto
 
 import com.google.gson.annotations.SerializedName
 

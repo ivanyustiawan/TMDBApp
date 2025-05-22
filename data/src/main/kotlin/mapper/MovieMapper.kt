@@ -1,14 +1,14 @@
-package com.example.tmdbapp.data.mapper
+package mapper
 
 import com.example.tmdbapp.core.network.NetworkConstant.BASE_POSTER_BACKDROP_IMAGE_URL
 import com.example.tmdbapp.core.network.NetworkConstant.BASE_POSTER_DETAIL_IMAGE_URL
 import com.example.tmdbapp.core.network.NetworkConstant.BASE_POSTER_GRID_IMAGE_URL
 import com.example.tmdbapp.core.network.orFalse
 import com.example.tmdbapp.core.network.orZero
-import com.example.tmdbapp.data.dto.MovieDetailDto
-import com.example.tmdbapp.data.dto.MovieDto
-import com.example.tmdbapp.domain.model.Movie
-import com.example.tmdbapp.domain.model.MovieDetail
+import dto.MovieDetailDto
+import dto.MovieDto
+import model.Movie
+import model.MovieDetail
 
 fun MovieDto.toModel(): Movie = Movie(
     adult = adult.orFalse(),

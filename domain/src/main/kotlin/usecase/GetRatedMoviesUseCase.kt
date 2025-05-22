@@ -1,8 +1,8 @@
-package com.example.tmdbapp.domain.usecase
+package usecase
 
 import kotlinx.coroutines.flow.Flow
-import com.example.tmdbapp.domain.model.Movie
-import com.example.tmdbapp.domain.repository.MovieRepository
+import model.Movie
+import repository.MovieRepository
 import javax.inject.Inject
 
 class GetRatedMoviesUseCase @Inject constructor (private val repository: MovieRepository) {

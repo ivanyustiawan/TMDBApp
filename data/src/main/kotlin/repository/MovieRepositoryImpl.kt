@@ -1,16 +1,16 @@
-package com.example.tmdbapp.data.repository
+package repository
 
 import com.example.tmdbapp.core.network.NetworkConstant
-import com.example.tmdbapp.data.api.MovieApi
-import com.example.tmdbapp.data.mapper.toModel
-import com.example.tmdbapp.domain.model.Movie
-import com.example.tmdbapp.domain.model.MovieDetail
-import com.example.tmdbapp.domain.repository.MovieRepository
+import api.MovieApi
+import mapper.toModel
+import model.Movie
+import model.MovieDetail
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
 
-class MovieRepositoryImpl(
+class MovieRepositoryImpl @Inject constructor(
     private val movieApi: MovieApi,
 ) : MovieRepository {
 

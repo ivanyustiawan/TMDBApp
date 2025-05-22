@@ -3,8 +3,8 @@ package com.example.tmdbapp.pages.detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tmdbapp.core.AppUiState
-import com.example.tmdbapp.domain.model.MovieDetail
-import com.example.tmdbapp.domain.usecase.GetDetailMovieUseCase
+import model.MovieDetail
+import usecase.GetDetailMovieUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

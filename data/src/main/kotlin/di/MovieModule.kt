@@ -1,8 +1,8 @@
-package com.example.tmdbapp.data.di
+package di
 
-import com.example.tmdbapp.data.api.MovieApi
-import com.example.tmdbapp.data.repository.MovieRepositoryImpl
-import com.example.tmdbapp.domain.repository.MovieRepository
+import api.MovieApi
+import repository.MovieRepositoryImpl
+import repository.MovieRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
