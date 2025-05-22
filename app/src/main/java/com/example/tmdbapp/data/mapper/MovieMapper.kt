@@ -1,10 +1,14 @@
 package com.example.tmdbapp.data.mapper
 
+import com.example.tmdbapp.core.network.NetworkConstant.BASE_POSTER_BACKDROP_IMAGE_URL
+import com.example.tmdbapp.core.network.NetworkConstant.BASE_POSTER_DETAIL_IMAGE_URL
 import com.example.tmdbapp.core.network.NetworkConstant.BASE_POSTER_GRID_IMAGE_URL
 import com.example.tmdbapp.core.network.orFalse
 import com.example.tmdbapp.core.network.orZero
+import com.example.tmdbapp.data.dto.MovieDetailDto
 import com.example.tmdbapp.data.dto.MovieDto
 import com.example.tmdbapp.domain.model.Movie
+import com.example.tmdbapp.domain.model.MovieDetail
 
 fun MovieDto.toModel(): Movie = Movie(
     adult = adult.orFalse(),
@@ -21,5 +25,17 @@ fun MovieDto.toModel(): Movie = Movie(
     video = video.orFalse(),
     voteAverage = voteAverage.orZero(),
     voteCount = voteCount.orZero(),
+)
+
+fun MovieDetailDto.toModel(): MovieDetail = MovieDetail(
+    adult = adult.orFalse(),
+    backdropPath = BASE_POSTER_BACKDROP_IMAGE_URL + backdropPath.orEmpty(),
+    posterPath = BASE_POSTER_DETAIL_IMAGE_URL + posterPath.orEmpty(),
+    title = title.orEmpty(),
+    voteAverage = voteAverage.orZero(),
+    voteCount = voteCount.orZero(),
+    releaseDate = releaseDate.orEmpty(),
+    originalLanguage = originalLanguage.orEmpty(),
+    overview = overview.orEmpty(),
 )
 

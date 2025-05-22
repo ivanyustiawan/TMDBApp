@@ -1,5 +1,6 @@
 package com.example.tmdbapp.data.api
 
+import com.example.tmdbapp.data.dto.MovieDetailDto
 import com.example.tmdbapp.data.dto.MovieListResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -21,5 +22,10 @@ interface MovieApi {
     suspend fun getPopularMovies(
         @Query("page") page: Int
     ): MovieListResponse
+
+    @GET("/3/movie/{movie_id}")
+    suspend fun getMovieDetail(
+        @Path("movie_id") movieId: Int,
+    ): MovieDetailDto
 
 }

@@ -4,6 +4,7 @@ import com.example.tmdbapp.core.network.NetworkConstant
 import com.example.tmdbapp.data.api.MovieApi
 import com.example.tmdbapp.data.mapper.toModel
 import com.example.tmdbapp.domain.model.Movie
+import com.example.tmdbapp.domain.model.MovieDetail
 import com.example.tmdbapp.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -30,6 +31,13 @@ class MovieRepositoryImpl(
     override suspend fun getFavoriteMovies(page: Int): Flow<List<Movie>> = flow {
         val response = movieApi.getFavoriteMovies(NetworkConstant.ACCOUNT_OBJECT_ID, page)
         emit(response.results?.map { it.toModel() } ?: emptyList())
+    }.catch { e ->
+        throw e
+    }
+
+    override suspend fun getDetailMovie(movieId: Int): Flow<MovieDetail>  = flow {
+        val response = movieApi.getMovieDetail(movieId)
+        emit(response.toModel())
     }.catch { e ->
         throw e
     }

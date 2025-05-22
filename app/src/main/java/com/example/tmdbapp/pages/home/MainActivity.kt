@@ -16,6 +16,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import com.example.tmdbapp.pages.Constant.MOVIE_ID
 import com.example.tmdbapp.pages.detail.MovieDetailActivity
 import com.example.tmdbapp.pages.home.ui.theme.TMDBAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,8 +33,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             TMDBAppTheme {
                 MainTab(
-                    onNavigateToDetail = {
-                        startActivity(Intent(this, MovieDetailActivity::class.java))
+                    onNavigateToDetail = { movieId ->
+                        val intent = Intent(this, MovieDetailActivity::class.java)
+                        intent.putExtra(MOVIE_ID, movieId)
+                        startActivity(intent)
                     },
                     popularViewModel,
                     ratedViewModel,
@@ -46,7 +49,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainTab(
-    onNavigateToDetail: () -> Unit,
+    onNavigateToDetail: (Int) -> Unit,
     popularViewModel: PopularViewModel,
     ratedViewModel: RatedViewModel,
     favoriteViewModel: FavoriteViewModel

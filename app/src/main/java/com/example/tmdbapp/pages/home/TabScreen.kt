@@ -31,7 +31,7 @@ import com.example.tmdbapp.domain.model.Movie
 
 @Composable
 fun TabScreen(
-    onNavigateToDetail: () -> Unit,
+    onNavigateToDetail: (Int) -> Unit,
     tabIndex: Int,
     baseViewModel: BaseViewModel
 ) {
@@ -74,18 +74,18 @@ fun TabScreen(
                 columns = GridCells.Fixed(2),
                 state = listState,
                 modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(8.dp)
+                contentPadding = PaddingValues(2.dp)
             ) {
                 items(movies) { movie ->
                     Card(
                         modifier = Modifier
-                            .padding(8.dp)
+                            .padding(2.dp)
                             .fillMaxWidth(),
                         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
                     ) {
                         Box(
                             modifier = Modifier
-                                .clickable{onNavigateToDetail()}
+                                .clickable { onNavigateToDetail(movie.id) }
                                 .fillMaxHeight(),
                             contentAlignment = Alignment.Center,
                         ) {
