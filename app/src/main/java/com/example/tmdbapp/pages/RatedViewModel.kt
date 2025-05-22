@@ -1,13 +1,11 @@
 package com.example.tmdbapp.pages
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tmdbapp.core.AppUiState
+import com.example.tmdbapp.core.BaseViewModel
 import com.example.tmdbapp.domain.model.Movie
 import com.example.tmdbapp.domain.usecase.GetRatedMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
@@ -16,23 +14,39 @@ import javax.inject.Inject
 @HiltViewModel
 class RatedViewModel @Inject constructor(
     private val getRatedMoviesUseCase: GetRatedMoviesUseCase
-) : ViewModel() {
+) : BaseViewModel() {
 
-    private val _uiState = MutableStateFlow<AppUiState<List<Movie>>>(AppUiState.Loading)
-    val uiState = _uiState.asStateFlow()
+    private var isLoading = false
+    private var currentPage = 1
+    private var currentData = mutableListOf<Movie>()
 
-    private fun getMovies() {
+    override fun getMovies(reset: Boolean) {
+        if (isLoading) return
+        isLoading = true
+
+        if (reset) {
+            currentPage = 1
+            currentData.clear()
+            _uiState.value = AppUiState.Success(emptyList())
+        }
+
         viewModelScope.launch {
-            getRatedMoviesUseCase(1)
+            getRatedMoviesUseCase(currentPage)
                 .onStart {
                     _uiState.value = AppUiState.Loading
                 }
                 .catch { e ->
                     _uiState.value = AppUiState.Error(e.localizedMessage ?: "Unexpected Error")
+                    isLoading = false
                 }
                 .collect { movies ->
-                    _uiState.value = AppUiState.Success(movies)
+                    currentPage++
+                    currentData.addAll(movies)
+                    _uiState.value = AppUiState.Success(currentData)
+                    isLoading = false
                 }
+
         }
     }
+
 }

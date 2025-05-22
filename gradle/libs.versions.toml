@@ -1,25 +1,26 @@
 [versions]
-agp = "8.10.0"
-kotlin = "2.0.20"
-coreKtx = "1.16.0"
+agp = "8.6.0"
+coilCompose = "2.4.0"
+kotlin = "1.9.22"
+coreKtx = "1.12.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.9.0"
-activityCompose = "1.10.1"
-composeBom = "2024.09.00"
-hilt = "2.46.1"
-okhttp = "4.12.0"
-retrofit = "3.0.0"
+activityCompose = "1.8.1"
+composeBom = "2023.10.01"
+hilt = "2.49"
+okhttp = "4.11.0"
+retrofit = "2.9.0"
 kotlinxCoroutinesAndroid = "1.7.3"
 truth = "1.4.0"
-composeCompiler = "1.5.11"
 mockk = "1.13.8"
 turbine = "1.1.0"
 kotlinxCoroutinesTest = "1.7.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -55,6 +56,5 @@ kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-t
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 

@@ -7,17 +7,17 @@ import retrofit2.http.Query
 
 interface MovieApi {
 
-    @GET("/account/{account_object_id}/movie/favorites")
+    @GET("/4/account/{account_object_id}/movie/favorites")
     suspend fun getFavoriteMovies(
         @Path("account_object_id") accountObjectId: String, @Query("page") page: Int
     ): MovieListResponse
 
-    @GET("/account/{account_object_id}/movie/rated")
+    @GET("/4/account/{account_object_id}/movie/rated")
     suspend fun getRatedMovies(
         @Path("account_object_id") accountObjectId: String, @Query("page") page: Int
     ): MovieListResponse
 
-    @GET("/account/{account_object_id}/movie/recommendations")
+    @GET("/4/account/{account_object_id}/movie/recommendations")
     suspend fun getPopularMovies(
         @Path("account_object_id") accountObjectId: String, @Query("page") page: Int
     ): MovieListResponse

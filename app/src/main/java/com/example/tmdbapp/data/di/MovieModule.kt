@@ -2,11 +2,11 @@ package com.example.tmdbapp.data.di
 
 import com.example.tmdbapp.data.api.MovieApi
 import com.example.tmdbapp.data.repository.MovieRepositoryImpl
+import com.example.tmdbapp.domain.repository.MovieRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import com.example.tmdbapp.domain.repository.MovieRepository
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
