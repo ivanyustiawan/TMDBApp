@@ -33,10 +33,10 @@ import model.Movie
 fun TabScreen(
     onNavigateToDetail: (Int) -> Unit,
     tabIndex: Int,
-    baseViewModel: BaseViewModel
+    baseViewModel: BaseViewModel<List<Movie>>
 ) {
 
-    var viewModel: BaseViewModel = if (tabIndex == 1) {
+    var viewModel: BaseViewModel<List<Movie>> = if (tabIndex == 1) {
         baseViewModel as PopularViewModel
     } else if (tabIndex == 2) {
         baseViewModel as RatedViewModel
@@ -48,7 +48,7 @@ fun TabScreen(
     val listState = rememberLazyGridState()
 
     LaunchedEffect(Unit) {
-        viewModel.getMovies(event = true)
+        viewModel.getData(true)
     }
 
     LaunchedEffect(listState) {
@@ -57,7 +57,7 @@ fun TabScreen(
                 if (uiState is AppUiState.Success && lastVisible != null &&
                     lastVisible >= (uiState as AppUiState.Success<List<Movie>>).data.size - 1
                 ) {
-                    viewModel.getMovies()
+                    viewModel.getData()
                 }
             }
     }

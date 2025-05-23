@@ -3,10 +3,10 @@ package com.example.tmdbapp.core
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import model.Movie
 
-abstract class BaseViewModel : ViewModel() {
-    protected val _uiState = MutableStateFlow<AppUiState<List<Movie>>>(AppUiState.Loading)
+abstract class BaseViewModel<T> : ViewModel() {
+    protected val _uiState = MutableStateFlow<AppUiState<T>>(AppUiState.Loading)
     val uiState = _uiState.asStateFlow()
-    open fun getMovies(event: Boolean = false) {}
+
+    open fun getData(param: Boolean = false) {}
 }

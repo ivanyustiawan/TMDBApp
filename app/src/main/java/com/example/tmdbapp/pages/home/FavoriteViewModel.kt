@@ -14,13 +14,13 @@ import javax.inject.Inject
 @HiltViewModel
 class FavoriteViewModel @Inject constructor(
     private val getFavoriteMoviesUseCase: GetFavoriteMoviesUseCase
-) : BaseViewModel() {
+) : BaseViewModel<List<Movie>>() {
 
     private var isLoading = false
     private var currentPage = 1
     private var currentData = mutableListOf<Movie>()
 
-    override fun getMovies(reset: Boolean) {
+    override fun getData(reset: Boolean) {
         if (isLoading) return
         isLoading = true
 
