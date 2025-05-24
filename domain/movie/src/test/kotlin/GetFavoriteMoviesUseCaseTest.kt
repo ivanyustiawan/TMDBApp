@@ -13,7 +13,7 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import movie.model.Movie
-import movie.usecase.GetFavoriteMoviesUseCase
+import usecase.GetFavoriteMoviesUseCase
 
 @ExperimentalCoroutinesApi
 class GetFavoriteMoviesUseCaseTest {
