@@ -1,13 +1,14 @@
 package repository
 
-import com.example.tmdbapp.base.network.NetworkConstant
+import com.example.tmdbapp.base.network.constant.NetworkConstant
 import api.MovieApi
 import mapper.toModel
-import model.Movie
-import model.MovieDetail
+import movie.model.Movie
+import movie.model.MovieDetail
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
+import movie.repository.MovieRepository
 import javax.inject.Inject
 
 class MovieRepositoryImpl @Inject constructor(

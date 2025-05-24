@@ -39,6 +39,6 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 
-    implementation(project(":domain"))
+    implementation(project(":domain:movie"))
     implementation(project(":core:network"))
 }

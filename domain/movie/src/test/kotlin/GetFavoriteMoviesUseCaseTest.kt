@@ -1,7 +1,6 @@
 
 import app.cash.turbine.test
-import repository.MovieRepository
-import usecase.GetPopularMoviesUseCase
+import movie.repository.MovieRepository
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -13,18 +12,19 @@ import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import model.Movie
+import movie.model.Movie
+import movie.usecase.GetFavoriteMoviesUseCase
 
 @ExperimentalCoroutinesApi
-class GetPopularMoviesUseCaseTest {
+class GetFavoriteMoviesUseCaseTest {
 
     private lateinit var movieRepository: MovieRepository
-    private lateinit var getPopularMoviesUseCase: GetPopularMoviesUseCase
+    private lateinit var getFavoriteMoviesUseCase: GetFavoriteMoviesUseCase
 
     @Before
     fun setUp() {
         movieRepository = mockk()
-        getPopularMoviesUseCase = GetPopularMoviesUseCase(movieRepository)
+        getFavoriteMoviesUseCase = GetFavoriteMoviesUseCase(movieRepository)
     }
 
     @After
@@ -33,44 +33,44 @@ class GetPopularMoviesUseCaseTest {
     }
 
     @Test
-    fun `test getPopularMovies success`() = runTest {
+    fun `test getFavoriteMovies success`() = runTest {
         val expectedResult = mockListofMovieSuccess
 
         coEvery {
-            movieRepository.getPopularMovies(1)
+            movieRepository.getFavoriteMovies(1)
         } returns flowOf(expectedResult)
 
-        getPopularMoviesUseCase(1).test {
+        getFavoriteMoviesUseCase(1).test {
             assertThat(awaitItem()).isEqualTo(expectedResult)
             awaitComplete()
         }
     }
 
     @Test
-    fun `test getPopularMovies success empty`() = runTest {
+    fun `test getFavoriteMovies success empty`() = runTest {
         val expectedResult = listOf<Movie>()
 
         coEvery {
-            movieRepository.getPopularMovies(1)
+            movieRepository.getFavoriteMovies(1)
         } returns flowOf(expectedResult)
 
-        getPopularMoviesUseCase(1).test {
+        getFavoriteMoviesUseCase(1).test {
             assertThat(awaitItem()).isEqualTo(expectedResult)
             awaitComplete()
         }
     }
 
     @Test
-    fun `test getPopularMovies error`() = runTest {
+    fun `test getFavoriteMovies error`() = runTest {
         val exception = Exception("error")
 
         coEvery {
-            movieRepository.getPopularMovies(1)
+            movieRepository.getFavoriteMovies(1)
         } returns flow {
             throw exception
         }
 
-        getPopularMoviesUseCase(1).test {
+        getFavoriteMoviesUseCase(1).test {
             val thrown = awaitError()
             assertThat(thrown.message).isEqualTo("error")
         }

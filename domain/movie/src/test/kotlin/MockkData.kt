@@ -1,4 +1,4 @@
-import model.Movie
+import movie.model.Movie
 
 val mockListofMovieSuccess = listOf(
     Movie(

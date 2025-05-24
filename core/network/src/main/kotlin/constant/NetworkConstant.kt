@@ -1,4 +1,4 @@
-package com.example.tmdbapp.base.network
+package com.example.tmdbapp.base.network.constant
 
 object NetworkConstant {
 

@@ -1,8 +1,8 @@
-package repository
+package movie.repository
 
 import kotlinx.coroutines.flow.Flow
-import model.Movie
-import model.MovieDetail
+import movie.model.Movie
+import movie.model.MovieDetail
 
 interface MovieRepository {
     suspend fun getPopularMovies(page: Int) : Flow<List<Movie>>

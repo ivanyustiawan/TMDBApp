@@ -2,7 +2,7 @@ package di
 
 import api.MovieApi
 import repository.MovieRepositoryImpl
-import repository.MovieRepository
+import movie.repository.MovieRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

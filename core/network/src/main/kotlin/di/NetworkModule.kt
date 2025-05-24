@@ -1,7 +1,6 @@
-package com.example.tmdbapp.base.network
+package com.example.tmdbapp.base.network.di
 
-import com.example.tmdbapp.base.network.NetworkConstant.AUTH_TOKEN
-import com.example.tmdbapp.base.network.NetworkConstant.BASE_URL
+import com.example.tmdbapp.base.network.constant.NetworkConstant
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,7 +24,7 @@ object NetworkModule {
             val original: Request = chain.request()
             val request = original.newBuilder()
                 .addHeader("accept", "application/json")
-                .header("Authorization", "Bearer $AUTH_TOKEN")
+                .header("Authorization", "Bearer ${NetworkConstant.AUTH_TOKEN}")
                 .build()
             chain.proceed(request)
         }
@@ -44,7 +43,7 @@ object NetworkModule {
     @Singleton
     fun provideRetrofit(client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(NetworkConstant.BASE_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

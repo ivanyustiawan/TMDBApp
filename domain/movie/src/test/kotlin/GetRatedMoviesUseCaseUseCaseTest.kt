@@ -1,6 +1,6 @@
 
 import app.cash.turbine.test
-import repository.MovieRepository
+import movie.repository.MovieRepository
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -12,8 +12,8 @@ import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import model.Movie
-import usecase.GetRatedMoviesUseCase
+import movie.model.Movie
+import movie.usecase.GetRatedMoviesUseCase
 
 @ExperimentalCoroutinesApi
 class GetRatedMoviesUseCaseUseCaseTest {

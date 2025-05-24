@@ -3,8 +3,8 @@ package com.example.tmdbapp.pages.home
 import androidx.lifecycle.viewModelScope
 import com.example.tmdbapp.base.AppUiState
 import com.example.tmdbapp.base.BaseViewModel
-import model.Movie
-import usecase.GetPopularMoviesUseCase
+import movie.model.Movie
+import movie.usecase.GetPopularMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart

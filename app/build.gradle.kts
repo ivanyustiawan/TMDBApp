@@ -74,7 +74,7 @@ dependencies {
 
     implementation(libs.coil.compose)
 
-    implementation(project(":domain"))
+    implementation(project(":domain:movie"))
     implementation(project(":data"))
 
 }
