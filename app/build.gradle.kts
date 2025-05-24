@@ -76,5 +76,6 @@ dependencies {
 
     implementation(project(":domain:movie"))
     implementation(project(":data:movie"))
+    implementation(project(":core:common"))
 
 }

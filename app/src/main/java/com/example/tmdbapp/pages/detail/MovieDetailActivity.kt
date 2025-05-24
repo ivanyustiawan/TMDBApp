@@ -1,5 +1,6 @@
 package com.example.tmdbapp.pages.detail
 
+import AppUiState
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -32,11 +33,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.tmdbapp.base.AppUiState
-import movie.model.MovieDetail
 import com.example.tmdbapp.pages.Constant.MOVIE_ID
 import com.example.tmdbapp.pages.detail.ui.theme.TMDBAppTheme
 import dagger.hilt.android.AndroidEntryPoint
+import movie.model.MovieDetail
 
 @AndroidEntryPoint
 class MovieDetailActivity : ComponentActivity() {

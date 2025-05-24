@@ -1,7 +1,6 @@
 package com.example.tmdbapp.pages.home
 
 import androidx.lifecycle.viewModelScope
-import com.example.tmdbapp.base.AppUiState
 import com.example.tmdbapp.base.BaseViewModel
 import movie.model.Movie
 import movie.usecase.GetPopularMoviesUseCase
@@ -20,11 +19,11 @@ class PopularViewModel @Inject constructor(
     private var currentPage = 1
     private var currentData = mutableListOf<Movie>()
 
-    override fun getData(reset: Boolean) {
+    override fun getData(param: Boolean) {
         if (isLoading) return
         isLoading = true
 
-        if (reset) {
+        if (param) {
             currentPage = 1
             currentData.clear()
             _uiState.value = AppUiState.Success(emptyList())
