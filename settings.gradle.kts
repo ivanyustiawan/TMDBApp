@@ -24,4 +24,4 @@ include(":app")
 include(":data:movie")
 include(":core:network")
 include(":domain:movie")
-
+include(":common")

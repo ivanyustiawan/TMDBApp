@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.library)
     alias(libs.plugins.kotlin.android)
-    kotlin("kapt")
 }
 
 android {
@@ -18,18 +17,4 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-}
-
-dependencies {
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.gson)
-
-    implementation(libs.kotlinx.coroutines.android)
-
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-
-    implementation(project(":domain:movie"))
-    implementation(project(":core:network"))
-    implementation(project(":common"))
 }
