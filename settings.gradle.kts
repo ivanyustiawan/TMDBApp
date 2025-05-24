@@ -23,5 +23,5 @@ rootProject.name = "TMDBApp"
 include(":app")
 include(":data:movie")
 include(":core:network")
+include(":core:extention")
 include(":domain:movie")
-include(":common")
