@@ -1,4 +1,4 @@
-package com.example.tmdbapp.core.network
+package com.example.tmdbapp.base.network
 
 fun Boolean?.orFalse(): Boolean = this ?: false
 

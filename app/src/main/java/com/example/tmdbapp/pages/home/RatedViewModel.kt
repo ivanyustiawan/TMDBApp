@@ -1,8 +1,8 @@
 package com.example.tmdbapp.pages.home
 
 import androidx.lifecycle.viewModelScope
-import com.example.tmdbapp.core.AppUiState
-import com.example.tmdbapp.core.BaseViewModel
+import com.example.tmdbapp.base.AppUiState
+import com.example.tmdbapp.base.BaseViewModel
 import model.Movie
 import usecase.GetRatedMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

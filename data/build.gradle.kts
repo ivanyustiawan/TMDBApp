@@ -40,5 +40,5 @@ dependencies {
     kapt(libs.hilt.compiler)
 
     implementation(project(":domain"))
-    implementation(project(":core"))
+    implementation(project(":core:network"))
 }

@@ -1,4 +1,4 @@
-package com.example.tmdbapp.core
+package com.example.tmdbapp.base
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

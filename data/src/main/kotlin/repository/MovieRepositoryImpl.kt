@@ -1,6 +1,6 @@
 package repository
 
-import com.example.tmdbapp.core.network.NetworkConstant
+import com.example.tmdbapp.base.network.NetworkConstant
 import api.MovieApi
 import mapper.toModel
 import model.Movie

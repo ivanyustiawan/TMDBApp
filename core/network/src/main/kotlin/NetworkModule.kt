@@ -1,7 +1,7 @@
-package com.example.tmdbapp.core.network
+package com.example.tmdbapp.base.network
 
-import com.example.tmdbapp.core.network.NetworkConstant.AUTH_TOKEN
-import com.example.tmdbapp.core.network.NetworkConstant.BASE_URL
+import com.example.tmdbapp.base.network.NetworkConstant.AUTH_TOKEN
+import com.example.tmdbapp.base.network.NetworkConstant.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

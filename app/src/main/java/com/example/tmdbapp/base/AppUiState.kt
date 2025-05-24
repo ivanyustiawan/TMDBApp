@@ -1,4 +1,4 @@
-package com.example.tmdbapp.core
+package com.example.tmdbapp.base
 
 sealed class AppUiState<out T> {
     data object Loading : AppUiState<Nothing>()
