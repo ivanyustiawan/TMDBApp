@@ -1,5 +1,6 @@
 package com.example.tmdbapp.pages.home
 
+import TMDBAppTheme
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -19,7 +20,6 @@ import androidx.compose.ui.Modifier
 import com.example.tmdbapp.pages.Constant
 import com.example.tmdbapp.pages.Constant.MOVIE_ID
 import com.example.tmdbapp.pages.detail.MovieDetailActivity
-import com.example.tmdbapp.pages.home.ui.theme.TMDBAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
