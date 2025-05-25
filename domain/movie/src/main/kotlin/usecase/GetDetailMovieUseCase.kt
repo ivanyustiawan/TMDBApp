@@ -1,4 +1,4 @@
-package movie.usecase
+package usecase
 
 import movie.model.MovieDetail
 import repository.MovieRepository
