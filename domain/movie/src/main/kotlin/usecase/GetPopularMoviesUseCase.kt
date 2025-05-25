@@ -1,8 +1,8 @@
-package movie.usecase
+package usecase
 
 import kotlinx.coroutines.flow.Flow
 import movie.model.Movie
-import movie.repository.MovieRepository
+import repository.MovieRepository
 import javax.inject.Inject
 
 class GetPopularMoviesUseCase @Inject constructor (private val repository: MovieRepository) {

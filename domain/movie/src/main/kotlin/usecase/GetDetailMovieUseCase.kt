@@ -1,7 +1,7 @@
 package movie.usecase
 
 import movie.model.MovieDetail
-import movie.repository.MovieRepository
+import repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

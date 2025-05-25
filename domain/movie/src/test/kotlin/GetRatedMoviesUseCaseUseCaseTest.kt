@@ -1,6 +1,6 @@
 
 import app.cash.turbine.test
-import movie.repository.MovieRepository
+import repository.MovieRepository
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -13,18 +13,18 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import movie.model.Movie
-import movie.usecase.GetRatedMoviesUseCase
+import usecase.GetTopRatedMoviesUseCase
 
 @ExperimentalCoroutinesApi
 class GetRatedMoviesUseCaseUseCaseTest {
 
     private lateinit var movieRepository: MovieRepository
-    private lateinit var getRatedMoviesUseCase: GetRatedMoviesUseCase
+    private lateinit var getTopRatedMoviesUseCase: GetTopRatedMoviesUseCase
 
     @Before
     fun setUp() {
         movieRepository = mockk()
-        getRatedMoviesUseCase = GetRatedMoviesUseCase(movieRepository)
+        getTopRatedMoviesUseCase = GetTopRatedMoviesUseCase(movieRepository)
     }
 
     @After
@@ -37,10 +37,10 @@ class GetRatedMoviesUseCaseUseCaseTest {
         val expectedResult = mockListofMovieSuccess
 
         coEvery {
-            movieRepository.getRatedMovies(1)
+            movieRepository.getTopRatedMovies(1)
         } returns flowOf(expectedResult)
 
-        getRatedMoviesUseCase(1).test {
+        getTopRatedMoviesUseCase(1).test {
             assertThat(awaitItem()).isEqualTo(expectedResult)
             awaitComplete()
         }
@@ -51,10 +51,10 @@ class GetRatedMoviesUseCaseUseCaseTest {
         val expectedResult = listOf<Movie>()
 
         coEvery {
-            movieRepository.getRatedMovies(1)
+            movieRepository.getTopRatedMovies(1)
         } returns flowOf(expectedResult)
 
-        getRatedMoviesUseCase(1).test {
+        getTopRatedMoviesUseCase(1).test {
             assertThat(awaitItem()).isEqualTo(expectedResult)
             awaitComplete()
         }
@@ -65,12 +65,12 @@ class GetRatedMoviesUseCaseUseCaseTest {
         val exception = Exception("error")
 
         coEvery {
-            movieRepository.getRatedMovies(1)
+            movieRepository.getTopRatedMovies(1)
         } returns flow {
             throw exception
         }
 
-        getRatedMoviesUseCase(1).test {
+        getTopRatedMoviesUseCase(1).test {
             val thrown = awaitError()
             assertThat(thrown.message).isEqualTo("error")
         }

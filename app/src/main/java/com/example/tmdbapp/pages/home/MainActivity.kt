@@ -16,6 +16,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import com.example.tmdbapp.pages.Constant
 import com.example.tmdbapp.pages.Constant.MOVIE_ID
 import com.example.tmdbapp.pages.detail.MovieDetailActivity
 import com.example.tmdbapp.pages.home.ui.theme.TMDBAppTheme
@@ -24,9 +25,9 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val popularViewModel: PopularViewModel by viewModels()
-    private val favoriteViewModel: FavoriteViewModel by viewModels()
-    private val ratedViewModel: RatedViewModel by viewModels()
+    private val popularViewModel: TabViewModel by viewModels()
+    private val favoriteViewModel: TabViewModel by viewModels()
+    private val topRatedViewModel: TabViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +40,7 @@ class MainActivity : ComponentActivity() {
                         startActivity(intent)
                     },
                     popularViewModel,
-                    ratedViewModel,
+                    topRatedViewModel,
                     favoriteViewModel
                 )
             }
@@ -50,27 +51,31 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainTab(
     onNavigateToDetail: (Int) -> Unit,
-    popularViewModel: PopularViewModel,
-    ratedViewModel: RatedViewModel,
-    favoriteViewModel: FavoriteViewModel
+    popularViewModel: TabViewModel,
+    topRatedViewModel: TabViewModel,
+    favoriteViewModel: TabViewModel
 ) {
-    val tabs = listOf("Popular", "Top Rated", "Favorite")
+    val tabs = listOf(
+        Constant.TabCategory.POPULAR,
+        Constant.TabCategory.TOP_RATED,
+        Constant.TabCategory.FAVORITE
+    )
     var selectedTab by remember { mutableStateOf(0) }
 
     Column(modifier = Modifier.fillMaxSize()) {
         TabRow(selectedTabIndex = selectedTab) {
-            tabs.forEachIndexed { index, title ->
+            tabs.forEachIndexed { index, tab ->
                 Tab(
-                    text = { Text(title) },
+                    text = { Text(tab.label) },
                     selected = selectedTab == index,
                     onClick = { selectedTab = index })
             }
         }
 
         when (selectedTab) {
-            0 -> TabScreen(onNavigateToDetail, 1, popularViewModel)
-            1 -> TabScreen(onNavigateToDetail, 2, ratedViewModel)
-            2 -> TabScreen(onNavigateToDetail, 3, favoriteViewModel)
+            0 -> TabScreen(onNavigateToDetail, Constant.TabCategory.POPULAR, popularViewModel)
+            1 -> TabScreen(onNavigateToDetail, Constant.TabCategory.TOP_RATED, topRatedViewModel)
+            2 -> TabScreen(onNavigateToDetail, Constant.TabCategory.FAVORITE, favoriteViewModel)
         }
     }
 }

@@ -14,7 +14,7 @@ interface MovieApi {
     ): MovieListResponse
 
     @GET("/3/movie/top_rated")
-    suspend fun getRatedMovies(
+    suspend fun getTopRatedMovies(
         @Query("page") page: Int
     ): MovieListResponse
 

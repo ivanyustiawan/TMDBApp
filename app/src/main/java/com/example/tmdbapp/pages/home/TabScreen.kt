@@ -1,5 +1,6 @@
 package com.example.tmdbapp.pages.home
 
+import AppUiState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -25,29 +26,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.tmdbapp.base.BaseViewModel
+import com.example.tmdbapp.pages.Constant
 import movie.model.Movie
 
 @Composable
 fun TabScreen(
     onNavigateToDetail: (Int) -> Unit,
-    tabIndex: Int,
-    baseViewModel: BaseViewModel<List<Movie>>
+    tab: Constant.TabCategory,
+    viewModel: TabViewModel
 ) {
-
-    var viewModel: BaseViewModel<List<Movie>> = if (tabIndex == 1) {
-        baseViewModel as PopularViewModel
-    } else if (tabIndex == 2) {
-        baseViewModel as RatedViewModel
-    } else {
-        baseViewModel as FavoriteViewModel
-    }
 
     val uiState by viewModel.uiState.collectAsState()
     val listState = rememberLazyGridState()
 
     LaunchedEffect(Unit) {
-        viewModel.getData(true)
+        viewModel.getData(reset = true, tab = tab)
     }
 
     LaunchedEffect(listState) {
@@ -56,7 +49,7 @@ fun TabScreen(
                 if (uiState is AppUiState.Success && lastVisible != null &&
                     lastVisible >= (uiState as AppUiState.Success<List<Movie>>).data.size - 1
                 ) {
-                    viewModel.getData()
+                    viewModel.getData(tab = tab)
                 }
             }
     }

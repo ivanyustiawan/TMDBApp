@@ -1,7 +1,7 @@
 
 import app.cash.turbine.test
-import movie.repository.MovieRepository
-import movie.usecase.GetPopularMoviesUseCase
+import repository.MovieRepository
+import usecase.GetPopularMoviesUseCase
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.mockk
