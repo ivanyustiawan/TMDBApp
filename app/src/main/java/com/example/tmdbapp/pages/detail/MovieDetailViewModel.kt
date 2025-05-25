@@ -1,6 +1,6 @@
 package com.example.tmdbapp.pages.detail
 
-import AppUiState
+import uistate.AppUiState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import movie.model.MovieDetail

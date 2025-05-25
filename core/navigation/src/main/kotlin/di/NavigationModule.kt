@@ -1,3 +1,7 @@
+package di
+
+import navigator.ActivityNavigator
+import navigator.ActivityNavigatorImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

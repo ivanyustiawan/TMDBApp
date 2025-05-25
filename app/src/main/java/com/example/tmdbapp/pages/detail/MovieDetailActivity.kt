@@ -1,6 +1,6 @@
 package com.example.tmdbapp.pages.detail
 
-import AppUiState
+import uistate.AppUiState
 import TMDBAppTheme
 import android.os.Bundle
 import androidx.activity.ComponentActivity
