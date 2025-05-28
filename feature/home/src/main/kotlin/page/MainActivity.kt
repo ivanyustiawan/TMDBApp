@@ -1,4 +1,4 @@
-package com.example.tmdbapp.pages.home
+package page
 
 import TMDBAppTheme
 import android.os.Bundle
@@ -16,8 +16,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import constant.CoreConstant.MOVIE_ID
-import constant.CoreConstant.TabCategory
+import androidx.compose.ui.tooling.preview.Preview
+import constant.CommonConstant.MOVIE_ID
+import constant.CommonConstant.TabCategory
 import constant.NavigationConstant.ActivityClass.MOVIE_DETAIL_ACTIVITY
 import dagger.hilt.android.AndroidEntryPoint
 import navigator.ActivityNavigator
@@ -40,8 +41,8 @@ class MainActivity : ComponentActivity() {
                 MainTab(
                     onNavigateToDetail = { movieId ->
                         activityNavigator.navigateTo(
-                            MOVIE_DETAIL_ACTIVITY.className,
-                            mapOf(MOVIE_ID to movieId)
+                            targetClassName = MOVIE_DETAIL_ACTIVITY.className,
+                            extras = mapOf(MOVIE_ID to movieId)
                         )
                     },
                     popularViewModel,

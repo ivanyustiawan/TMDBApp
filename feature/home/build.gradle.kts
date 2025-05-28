@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.tmdbapp.feature.movieDetail"
+    namespace = "com.example.tmdbapp.feature.home"
     compileSdk = 35
 
     defaultConfig {
@@ -41,5 +41,6 @@ dependencies {
 
     implementation(project(":core:common"))
     implementation(project(":core:ui"))
+    implementation(project(":core:navigation"))
     implementation(project(":domain:movie"))
 }

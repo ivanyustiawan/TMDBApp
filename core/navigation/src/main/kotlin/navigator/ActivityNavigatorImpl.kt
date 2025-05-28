@@ -4,12 +4,14 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import dagger.hilt.android.qualifiers.ApplicationContext
+import java.util.FormattableFlags
 import javax.inject.Inject
 
 class ActivityNavigatorImpl @Inject constructor(
     @ApplicationContext private val context: Context
 ) : ActivityNavigator {
     override fun navigateTo(
+        flags: Int,
         targetClassName: String,
         extras: Map<String, Any>?
     ) {
@@ -18,7 +20,7 @@ class ActivityNavigatorImpl @Inject constructor(
             val className = Class.forName(targetClassName)
             val activityClass = className as Class<out Activity>
             val intent = Intent(context, activityClass).apply {
-                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                addFlags(flags)
                 extras?.forEach { (key, value) ->
                     when (value) {
                         is String -> putExtra(key, value)

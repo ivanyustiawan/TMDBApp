@@ -13,7 +13,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import constant.CoreConstant.MOVIE_ID
+import constant.CommonConstant.MOVIE_ID
 import dagger.hilt.android.AndroidEntryPoint
 import model.MovieDetail
 import uistate.AppUiState

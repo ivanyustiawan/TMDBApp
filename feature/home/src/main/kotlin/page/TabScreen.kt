@@ -1,4 +1,4 @@
-package com.example.tmdbapp.pages.home
+package page
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -25,14 +25,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import constant.CoreConstant
+import constant.CommonConstant
 import model.Movie
 import uistate.AppUiState
 
 @Composable
 fun TabScreen(
     onNavigateToDetail: (Int) -> Unit,
-    tab: CoreConstant.TabCategory,
+    tab: CommonConstant.TabCategory,
     viewModel: TabViewModel
 ) {
 

@@ -1,8 +1,8 @@
-package com.example.tmdbapp.pages.home
+package page
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import constant.CoreConstant
+import constant.CommonConstant
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -30,7 +30,7 @@ class TabViewModel @Inject constructor(
     private var currentPage = 1
     private var currentData = mutableListOf<Movie>()
 
-    fun getData(reset: Boolean = false, tab: CoreConstant.TabCategory) {
+    fun getData(reset: Boolean = false, tab: CommonConstant.TabCategory) {
         if (isLoading) return
         isLoading = true
 
@@ -42,8 +42,8 @@ class TabViewModel @Inject constructor(
 
         viewModelScope.launch {
             when (tab) {
-                CoreConstant.TabCategory.POPULAR -> getPopularMovies()
-                CoreConstant.TabCategory.TOP_RATED -> getTopRatedMovies()
+                CommonConstant.TabCategory.POPULAR -> getPopularMovies()
+                CommonConstant.TabCategory.TOP_RATED -> getTopRatedMovies()
                 else -> getFavoriteMovies()
             }
         }
