@@ -1,6 +1,6 @@
-package com.example.tmdbapp.base.network.di
+package di
 
-import com.example.tmdbapp.base.network.constant.NetworkConstant
+import constant.NetworkConstant
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

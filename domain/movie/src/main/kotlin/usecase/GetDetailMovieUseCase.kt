@@ -1,6 +1,6 @@
 package usecase
 
-import movie.model.MovieDetail
+import model.MovieDetail
 import repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

@@ -15,11 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TMDBApp"
         tools:targetApi="31">
-        <activity
-            android:name=".pages.detail.MovieDetailActivity"
-            android:exported="false"
-            android:label="@string/title_activity_movie_detail"
-            android:theme="@style/Theme.TMDBApp" />
+
         <activity
             android:name=".pages.home.MainActivity"
             android:exported="true"

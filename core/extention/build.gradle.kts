@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.tmdbapp"
+    namespace = "com.example.tmdbapp.core.extention"
     compileSdk = 35
 
     defaultConfig {

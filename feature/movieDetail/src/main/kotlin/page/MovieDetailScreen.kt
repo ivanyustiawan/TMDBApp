@@ -1,11 +1,5 @@
-package com.example.tmdbapp.pages.detail
+package page
 
-import uistate.AppUiState
-import TMDBAppTheme
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,72 +11,21 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.tmdbapp.pages.Constant.MOVIE_ID
-import dagger.hilt.android.AndroidEntryPoint
-import movie.model.MovieDetail
-
-@AndroidEntryPoint
-class MovieDetailActivity : ComponentActivity() {
-
-    private val viewModel: MovieDetailViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val movieId = intent.getIntExtra(MOVIE_ID, -1)
-        if (movieId != -1) {
-            viewModel.getMovieDetail(movieId)
-        }
-
-        setContent {
-            TMDBAppTheme {
-                val movieState by viewModel.uiState.collectAsState()
-
-                when (movieState) {
-                    is AppUiState.Loading -> {
-                        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                            CircularProgressIndicator()
-                        }
-                    }
-
-                    is AppUiState.Success -> {
-                        val movie = (movieState as AppUiState.Success<MovieDetail>).data
-                        MovieDetailScreen(
-                            movie = movie,
-                            onBackClick = { finish() },
-                            onToggleFavorite = { },
-                            isFavorite = false
-                        )
-                    }
-
-                    is AppUiState.Error -> {
-                        Text("Error: ${(movieState as AppUiState.Error).message}")
-                    }
-
-                    else -> {}
-                }
-            }
-
-        }
-    }
-}
+import model.MovieDetail
 
 @Composable
 fun MovieDetailScreen(
@@ -110,7 +53,7 @@ fun MovieDetailScreen(
                     .align(Alignment.TopStart)
             ) {
                 Icon(
-                    imageVector = Icons.Default.ArrowBack,
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = "Back",
                     tint = Color.White
                 )
@@ -151,7 +94,6 @@ fun MovieDetailScreen(
                 }
             }
 
-
             IconButton(
                 onClick = onToggleFavorite,
                 modifier = Modifier
@@ -176,7 +118,6 @@ fun MovieDetailScreen(
             style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier.padding(horizontal = 16.dp)
         )
-
 
     }
 }

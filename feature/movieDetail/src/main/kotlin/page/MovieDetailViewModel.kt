@@ -1,20 +1,20 @@
-package com.example.tmdbapp.pages.detail
+package page
 
-import uistate.AppUiState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import movie.model.MovieDetail
-import usecase.GetDetailMovieUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
+import model.MovieDetail
+import uistate.AppUiState
+import usecase.GetDetailMovieUseCase
 import javax.inject.Inject
 
 @HiltViewModel
-class MovieDetailViewModel @Inject constructor(
+class MovieDetailViewModel @Inject constructor (
     private val getDetailMovieUseCase: GetDetailMovieUseCase
 ) : ViewModel() {
 

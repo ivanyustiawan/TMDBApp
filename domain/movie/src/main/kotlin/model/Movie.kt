@@ -1,4 +1,4 @@
-package movie.model
+package model
 
 data class Movie(
     val adult: Boolean,

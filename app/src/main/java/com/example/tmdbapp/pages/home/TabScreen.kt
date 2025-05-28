@@ -1,6 +1,5 @@
 package com.example.tmdbapp.pages.home
 
-import uistate.AppUiState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -26,13 +25,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.tmdbapp.pages.Constant
-import movie.model.Movie
+import constant.CoreConstant
+import model.Movie
+import uistate.AppUiState
 
 @Composable
 fun TabScreen(
     onNavigateToDetail: (Int) -> Unit,
-    tab: Constant.TabCategory,
+    tab: CoreConstant.TabCategory,
     viewModel: TabViewModel
 ) {
 

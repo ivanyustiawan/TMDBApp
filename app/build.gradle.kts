@@ -78,5 +78,7 @@ dependencies {
     implementation(project(":data:movie"))
     implementation(project(":core:common"))
     implementation(project(":core:ui"))
+    implementation(project(":core:navigation"))
+    implementation(project(":feature:movieDetail"))
 
 }

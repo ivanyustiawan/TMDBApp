@@ -1,6 +1,6 @@
-package com.example.tmdbapp.pages
+package constant
 
-object Constant {
+object CoreConstant {
     const val MOVIE_ID = "MOVIE_ID"
 
     enum class TabCategory(val label: String) {

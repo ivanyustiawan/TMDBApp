@@ -1,10 +1,12 @@
 plugins {
     alias(libs.plugins.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt)
+    kotlin("kapt")
 }
 
 android {
-    namespace = "com.example.tmdbapp.core.ui"
+    namespace = "com.example.tmdbapp.feature.movieDetail"
     compileSdk = 35
 
     defaultConfig {
@@ -26,7 +28,17 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.foundation.layout.android)
+    implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.ui)
+    implementation(libs.coil.compose)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    implementation(project(":core:common"))
+    implementation(project(":core:ui"))
+    implementation(project(":domain:movie"))
 }

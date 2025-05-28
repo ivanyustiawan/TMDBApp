@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.tmdbapp"
+    namespace = "com.example.tmdbapp.data.movie"
     compileSdk = 35
 
     defaultConfig {

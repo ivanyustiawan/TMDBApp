@@ -3,18 +3,33 @@ package navigator
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
-class ActivityNavigatorImpl @Inject constructor() : ActivityNavigator {
+class ActivityNavigatorImpl @Inject constructor(
+    @ApplicationContext private val context: Context
+) : ActivityNavigator {
     override fun navigateTo(
-        context: Context,
-        target: Class<out Activity>,
-        extras: Bundle?
+        targetClassName: String,
+        extras: Map<String, Any>?
     ) {
-        val intent = Intent(context, target).apply {
-            extras?.let { putExtras(it) }
+
+        try {
+            val className = Class.forName(targetClassName)
+            val activityClass = className as Class<out Activity>
+            val intent = Intent(context, activityClass).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                extras?.forEach { (key, value) ->
+                    when (value) {
+                        is String -> putExtra(key, value)
+                        is Int -> putExtra(key, value)
+                        is Boolean -> putExtra(key, value)
+                    }
+                }
+            }
+            context.startActivity(intent)
+        } catch (e: ClassNotFoundException) {
+            throw e
         }
-        context.startActivity(intent)
     }
 }

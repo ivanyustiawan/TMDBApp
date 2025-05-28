@@ -1,19 +1,19 @@
 package com.example.tmdbapp.pages.home
 
-import uistate.AppUiState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.tmdbapp.pages.Constant
+import constant.CoreConstant
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
-import movie.model.Movie
+import model.Movie
+import uistate.AppUiState
+import usecase.GetFavoriteMoviesUseCase
 import usecase.GetPopularMoviesUseCase
 import usecase.GetTopRatedMoviesUseCase
-import usecase.GetFavoriteMoviesUseCase
 import javax.inject.Inject
 
 @HiltViewModel
@@ -30,7 +30,7 @@ class TabViewModel @Inject constructor(
     private var currentPage = 1
     private var currentData = mutableListOf<Movie>()
 
-    fun getData(reset: Boolean = false, tab: Constant.TabCategory) {
+    fun getData(reset: Boolean = false, tab: CoreConstant.TabCategory) {
         if (isLoading) return
         isLoading = true
 
@@ -42,8 +42,8 @@ class TabViewModel @Inject constructor(
 
         viewModelScope.launch {
             when (tab) {
-                Constant.TabCategory.POPULAR -> getPopularMovies()
-                Constant.TabCategory.TOP_RATED -> getTopRatedMovies()
+                CoreConstant.TabCategory.POPULAR -> getPopularMovies()
+                CoreConstant.TabCategory.TOP_RATED -> getTopRatedMovies()
                 else -> getFavoriteMovies()
             }
         }

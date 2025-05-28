@@ -1,14 +1,14 @@
 package mapper
 
-import com.example.tmdbapp.base.network.constant.NetworkConstant.BASE_POSTER_BACKDROP_IMAGE_URL
-import com.example.tmdbapp.base.network.constant.NetworkConstant.BASE_POSTER_DETAIL_IMAGE_URL
-import com.example.tmdbapp.base.network.constant.NetworkConstant.BASE_POSTER_GRID_IMAGE_URL
+import constant.NetworkConstant.BASE_POSTER_BACKDROP_IMAGE_URL
+import constant.NetworkConstant.BASE_POSTER_DETAIL_IMAGE_URL
+import constant.NetworkConstant.BASE_POSTER_GRID_IMAGE_URL
 import dto.MovieDetailDto
 import dto.MovieDto
 import extention.orFalse
 import extention.orZero
-import movie.model.Movie
-import movie.model.MovieDetail
+import model.Movie
+import model.MovieDetail
 
 fun MovieDto.toModel(): Movie = Movie(
     adult = adult.orFalse(),
