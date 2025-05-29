@@ -30,7 +30,6 @@ class SplashActivity : ComponentActivity() {
     lateinit var activityNavigator: ActivityNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen()
         super.onCreate(savedInstanceState)
 
         Handler(Looper.getMainLooper()).postDelayed({
