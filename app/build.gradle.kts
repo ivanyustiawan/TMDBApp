@@ -7,14 +7,14 @@ plugins {
 
 android {
     namespace = "com.example.tmdbapp"
-    compileSdk = 35
+    compileSdk = AppConfig.compileSdk
 
     defaultConfig {
-        applicationId = "com.example.tmdbapp"
-        minSdk = 29
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = AppConfig.applicationId
+        minSdk = AppConfig.minSdk
+        targetSdk = AppConfig.targetSdk
+        versionCode = AppConfig.versionCode
+        versionName = AppConfig.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
