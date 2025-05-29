@@ -6,17 +6,17 @@ plugins {
 
 android {
     namespace = "com.example.tmdbapp.data.movie"
-    compileSdk = 35
+    compileSdk = AppConfig.compileSdk
 
     defaultConfig {
-        minSdk = 29
+        minSdk = AppConfig.minSdk
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = libs.versions.jvmTargetVersion.get()
     }
 }
 

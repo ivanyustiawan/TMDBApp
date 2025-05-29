@@ -1,6 +1,7 @@
 [versions]
 agp = "8.6.0"
-coreSplashscreen = "1.0.1"
+jvmTargetVersion = "11"
+composeCompilerVersion = "1.5.10"
 library = "8.6.0"
 coilCompose = "2.4.0"
 kotlin = "1.9.22"
@@ -20,6 +21,7 @@ mockk = "1.13.8"
 turbine = "1.1.0"
 kotlinxCoroutinesTest = "1.7.3"
 foundationLayoutAndroid = "1.8.2"
+coreSplashscreen = "1.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }

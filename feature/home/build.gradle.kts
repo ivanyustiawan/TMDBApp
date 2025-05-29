@@ -7,23 +7,23 @@ plugins {
 
 android {
     namespace = "com.example.tmdbapp.feature.home"
-    compileSdk = 35
+    compileSdk = AppConfig.compileSdk
 
     defaultConfig {
-        minSdk = 29
+        minSdk = AppConfig.minSdk
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = libs.versions.jvmTargetVersion.get().toString()
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.10"
+        kotlinCompilerExtensionVersion = libs.versions.composeCompilerVersion.get()
     }
 }
 
