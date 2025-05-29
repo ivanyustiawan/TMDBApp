@@ -31,5 +31,5 @@ dependencies {
 
     implementation(project(":domain:movie"))
     implementation(project(":core:network"))
-    implementation(project(":core:extention"))
+    implementation(project(":core:extension"))
 }

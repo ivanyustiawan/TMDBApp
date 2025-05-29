@@ -5,8 +5,8 @@ import constant.NetworkConstant.BASE_POSTER_DETAIL_IMAGE_URL
 import constant.NetworkConstant.BASE_POSTER_GRID_IMAGE_URL
 import dto.MovieDetailDto
 import dto.MovieDto
-import extention.orFalse
-import extention.orZero
+import extension.orFalse
+import extension.orZero
 import model.Movie
 import model.MovieDetail
 
