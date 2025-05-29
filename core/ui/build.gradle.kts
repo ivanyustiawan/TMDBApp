@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace = "com.example.tmdbapp.core.ui"
-    compileSdk = AppConfig.compileSdk
+    compileSdk = AppConfig.COMPILE_SDK
 
     defaultConfig {
-        minSdk = AppConfig.minSdk
+        minSdk = AppConfig.MIN_SDK
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

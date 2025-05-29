@@ -1,8 +1,8 @@
 object AppConfig {
-    const val applicationId = "com.movie"
-    const val compileSdk = 35
-    const val targetSdk = 35
-    const val minSdk = 29
-    const val versionCode = 1
-    const val versionName = "1.0"
+    const val APPLICATION_ID = "com.movie"
+    const val COMPILE_SDK = 35
+    const val TARGET_SDK = 35
+    const val MIN_SDK = 29
+    const val VERSION_CODE = 1
+    const val VERSION_NAME = "1.0"
 }
