@@ -1,7 +1,6 @@
 package di
 
 import com.example.tmdbapp.core.network.BuildConfig
-import constant.NetworkConstant
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,7 +24,7 @@ object NetworkModule {
             val original: Request = chain.request()
             val request = original.newBuilder()
                 .addHeader("accept", "application/json")
-                .header("Authorization", "Bearer ${NetworkConstant.AUTH_TOKEN}")
+                .header("Authorization", "Bearer ${BuildConfig.AUTH_TOKEN}")
                 .build()
             chain.proceed(request)
         }

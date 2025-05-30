@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.library)
     alias(libs.plugins.kotlin.android)
@@ -14,14 +16,22 @@ android {
     buildFeatures {
         buildConfig = true
     }
+
+    val props = Properties().apply {
+        load(File(rootDir, "local.properties").inputStream())
+    }
     buildTypes {
         debug {
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/\"")
             buildConfigField("String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/\"")
+            buildConfigField("String", "AUTH_TOKEN", props["AUTH_TOKEN"] as String)
+            buildConfigField("String", "ACCOUNT_OBJECT_ID", props["ACCOUNT_OBJECT_ID"] as String)
         }
         release {
             buildConfigField("String", "BASE_URL", "\"https://release-api.themoviedb.org/\"")
             buildConfigField("String", "BASE_IMAGE_URL", "\"https://release-image.tmdb.org/\"")
+            buildConfigField("String", "AUTH_TOKEN", props["AUTH_TOKEN"] as String)
+            buildConfigField("String", "ACCOUNT_OBJECT_ID", props["ACCOUNT_OBJECT_ID"] as String)
         }
     }
     compileOptions {

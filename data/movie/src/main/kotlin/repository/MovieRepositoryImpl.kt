@@ -1,7 +1,7 @@
 package repository
 
 import api.MovieApi
-import constant.NetworkConstant
+import com.example.tmdbapp.core.network.BuildConfig
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
@@ -29,7 +29,7 @@ class MovieRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getFavoriteMovies(page: Int): Flow<List<Movie>> = flow {
-        val response = movieApi.getFavoriteMovies(NetworkConstant.ACCOUNT_OBJECT_ID, page)
+        val response = movieApi.getFavoriteMovies(BuildConfig.ACCOUNT_OBJECT_ID, page)
         emit(response.results?.map { it.toModel() } ?: emptyList())
     }.catch { e ->
         throw e
