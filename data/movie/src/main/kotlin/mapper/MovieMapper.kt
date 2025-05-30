@@ -1,8 +1,9 @@
 package mapper
 
-import constant.NetworkConstant.BASE_POSTER_BACKDROP_IMAGE_URL
-import constant.NetworkConstant.BASE_POSTER_DETAIL_IMAGE_URL
-import constant.NetworkConstant.BASE_POSTER_GRID_IMAGE_URL
+import com.example.tmdbapp.core.network.BuildConfig
+import constant.MovieConstant.GRID_IMAGE_SIZE
+import constant.MovieConstant.POSTER_BACKDROP_IMAGE_SIZE
+import constant.MovieConstant.POSTER_DETAIL_IMAGE_SIZE
 import dto.MovieDetailDto
 import dto.MovieDto
 import extension.orFalse
@@ -19,7 +20,7 @@ fun MovieDto.toModel(): Movie = Movie(
     originalTitle = originalTitle.orEmpty(),
     overview = overview.orEmpty(),
     popularity = popularity.orZero(),
-    posterPath = BASE_POSTER_GRID_IMAGE_URL + posterPath.orEmpty(),
+    posterPath = BuildConfig.BASE_IMAGE_URL + GRID_IMAGE_SIZE + posterPath.orEmpty(),
     releaseDate = releaseDate.orEmpty(),
     title = title.orEmpty(),
     video = video.orFalse(),
@@ -29,8 +30,8 @@ fun MovieDto.toModel(): Movie = Movie(
 
 fun MovieDetailDto.toModel(): MovieDetail = MovieDetail(
     adult = adult.orFalse(),
-    backdropPath = BASE_POSTER_BACKDROP_IMAGE_URL + backdropPath.orEmpty(),
-    posterPath = BASE_POSTER_DETAIL_IMAGE_URL + posterPath.orEmpty(),
+    backdropPath = BuildConfig.BASE_IMAGE_URL + POSTER_BACKDROP_IMAGE_SIZE + backdropPath.orEmpty(),
+    posterPath = BuildConfig.BASE_IMAGE_URL + POSTER_DETAIL_IMAGE_SIZE + posterPath.orEmpty(),
     title = title.orEmpty(),
     voteAverage = voteAverage.orZero(),
     voteCount = voteCount.orZero(),

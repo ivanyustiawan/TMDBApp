@@ -1,5 +1,6 @@
 package di
 
+import com.example.tmdbapp.core.network.BuildConfig
 import constant.NetworkConstant
 import dagger.Module
 import dagger.Provides
@@ -43,7 +44,7 @@ object NetworkModule {
     @Singleton
     fun provideRetrofit(client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(NetworkConstant.BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
